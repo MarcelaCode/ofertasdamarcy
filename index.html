@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ofertas da Marcy | Achadinhos</title>
+<meta name="description" content="Achadinhos e ofertas da Shopee garimpados pela Marcy. Links de afiliada.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍️</text></svg>">
+<style>
+  :root {
+    --rosa-claro: #FDE4F0; --rosa: #F9C6DD; --pink: #E91E7A; --pink-escuro: #B8125E;
+    --lilas: #B79CE0; --lilas-claro: #EFE6FA; --branco: #FFFFFF; --texto: #3D1F33; --suave: #8A6479;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    color: var(--texto); min-height: 100vh;
+    background: radial-gradient(circle at 15% 0%, var(--lilas-claro), transparent 45%),
+                radial-gradient(circle at 100% 30%, var(--rosa), transparent 40%), var(--rosa-claro);
+  }
+  .wrap { max-width: 560px; margin: 0 auto; padding: 28px 16px 40px; }
+  header { text-align: center; margin-bottom: 18px; }
+  .logo {
+    width: 96px; height: 96px; margin: 0 auto 12px; border-radius: 50%;
+    background: var(--branco); border: 4px solid var(--pink); display: grid; place-items: center;
+    font-size: 44px; box-shadow: 0 6px 20px rgba(233, 30, 122, .25);
+  }
+  h1 { font-size: 28px; color: var(--pink-escuro); letter-spacing: -.5px; }
+  h1 span { color: var(--pink); }
+  .sub { color: var(--suave); margin-top: 4px; font-size: 15px; }
+  .ig {
+    display: inline-flex; gap: 6px; align-items: center; margin-top: 12px; padding: 8px 16px;
+    border-radius: 999px; background: var(--branco); color: var(--pink-escuro); font-weight: 600;
+    text-decoration: none; font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  .busca {
+    width: 100%; padding: 13px 16px; border-radius: 14px; border: 2px solid var(--rosa);
+    font-size: 16px; background: var(--branco); color: var(--texto); outline: none; margin: 6px 0 10px;
+  }
+  .busca:focus { border-color: var(--pink); }
+  .chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 10px; scrollbar-width: none; }
+  .chip {
+    flex: 0 0 auto; border: 0; border-radius: 999px; padding: 8px 14px; font-size: 14px; cursor: pointer;
+    background: var(--branco); color: var(--pink-escuro); font-weight: 600;
+  }
+  .chip[aria-pressed="true"] { background: var(--pink); color: var(--branco); }
+  .lista { display: grid; gap: 12px; }
+  .card {
+    display: grid; grid-template-columns: 84px 1fr; gap: 12px; align-items: center;
+    background: var(--branco); border-radius: 18px; padding: 12px; text-decoration: none; color: inherit;
+    box-shadow: 0 3px 12px rgba(184, 18, 94, .08); transition: transform .12s ease;
+  }
+  .card:hover, .card:focus-visible { transform: translateY(-2px); outline: 2px solid var(--pink); }
+  .foto { width: 84px; height: 84px; border-radius: 12px; background: var(--lilas-claro); object-fit: cover; display: grid; place-items: center; font-size: 30px; }
+  .num { font-size: 12px; font-weight: 700; color: var(--branco); background: var(--lilas); border-radius: 999px; padding: 2px 8px; display: inline-block; }
+  .cat { font-size: 12px; color: var(--suave); margin-left: 6px; }
+  .nome { font-weight: 600; font-size: 15px; line-height: 1.3; margin: 4px 0;
+          display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .linha { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .preco { color: var(--pink-escuro); font-weight: 700; }
+  .preco small { color: var(--suave); font-weight: 400; font-size: 11px; display: block; }
+  .btn { background: var(--pink); color: var(--branco); font-weight: 700; font-size: 13px; border-radius: 999px; padding: 7px 12px; white-space: nowrap; }
+  .vazio, .erro { text-align: center; padding: 28px 12px; color: var(--suave); background: var(--branco); border-radius: 18px; }
+  footer { text-align: center; color: var(--suave); font-size: 12px; margin-top: 24px; line-height: 1.6; }
+  footer strong { color: var(--pink-escuro); }
+  .demo { background: #fff3a0; color: #5a4a00; text-align: center; font-size: 13px; padding: 6px; border-radius: 10px; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo" aria-hidden="true">🛍️</div>
+    <h1>Ofertas da <span>Marcy</span></h1>
+    <p class="sub">Achadinhos e garimpos da Shopee 💗</p>
+    <a class="ig" href="https://www.instagram.com/ofertasdamarcy/" target="_blank" rel="noopener">📸 @ofertasdamarcy</a>
+  </header>
+
+  <div id="aviso-demo" class="demo" hidden>Pré-visualização com produtos FICTÍCIOS</div>
+  <input id="busca" class="busca" type="search" placeholder="Buscar pelo nome ou nº do post (ex.: 12)" aria-label="Buscar produto">
+  <div id="chips" class="chips" role="group" aria-label="Filtrar por categoria"></div>
+  <main id="lista" class="lista" aria-live="polite"><div class="vazio">Carregando achadinhos…</div></main>
+
+  <footer>
+    <strong>Publicidade:</strong> os links desta página são links de afiliada da Shopee.<br>
+    Comprando por eles você não paga nada a mais e a Marcy recebe uma pequena comissão. 💜<br>
+    Preços e disponibilidade são da Shopee e podem mudar a qualquer momento.
+  </footer>
+</div>
+
+<script>
+  // Endereço da vitrine pública (Apps Script). Só expõe produtos aprovados e campos públicos.
+  const VITRINE_URL = 'https://script.google.com/macros/s/AKfycbzeA1zYUlJZbhYojoohtK6IRSdIYr79jdkHZl_0Ab1mqotBd7Vx6ZFrVDDhk9rAiaPh/exec?vitrine=1';
+
+  const DEMO = [
+    { n: 3, nome: 'PRODUTO FICTÍCIO - Organizador de gaveta', categoria: 'Organização', preco: 29.9, data: '2026-11-22', link: '#', imagem: '' },
+    { n: 2, nome: 'PRODUTO FICTÍCIO - Kit de pincéis de maquiagem', categoria: 'Beleza e maquiagem', preco: 39.9, data: '2026-11-22', link: '#', imagem: '' },
+    { n: 1, nome: 'PRODUTO FICTÍCIO - Garrafa térmica', categoria: 'Produtos úteis para o cotidiano', preco: '', data: '2026-11-22', link: '#', imagem: '' }
+  ];
+  const EMOJI = { 'Beleza e maquiagem': '💄', 'Moda e acessórios': '👜', 'Casa e decoração': '🏠', 'Organização': '🧺',
+    'Tecnologia': '🎧', 'Eletrônicos e acessórios': '🔌', 'Cozinha': '🍳', 'Papelaria': '✏️',
+    'Produtos úteis para o cotidiano': '✨', 'Cuidados pessoais': '🧴' };
+
+  let produtos = [], categoria = 'Todos';
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const brl = v => Number(v).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const dataBR = d => { const m = String(d).match(/(\d{4})-(\d{2})-(\d{2})/); return m ? `${m[3]}/${m[2]}` : ''; };
+  const linkSeguro = u => /^https:\/\/([a-z0-9-]+\.)*(shopee\.com\.br|shope\.ee)\//i.test(u) ? u : null;
+
+  function desenharChips() {
+    const cats = ['Todos', ...new Set(produtos.map(p => p.categoria).filter(Boolean))];
+    $('chips').innerHTML = cats.map(c => `<button class="chip" aria-pressed="${c === categoria}" data-c="${esc(c)}">${esc(EMOJI[c] || '')} ${esc(c)}</button>`).join('');
+  }
+
+  function desenhar() {
+    const q = $('busca').value.trim().toLowerCase().replace(/^#/, '');
+    const vis = produtos.filter(p => (categoria === 'Todos' || p.categoria === categoria) &&
+      (!q || String(p.n) === q || p.nome.toLowerCase().includes(q)));
+    if (!vis.length) { $('lista').innerHTML = `<div class="vazio">${produtos.length ? 'Nenhum achadinho encontrado 🔎' : 'Os primeiros achadinhos chegam em breve! 💗'}</div>`; return; }
+    $('lista').innerHTML = vis.map(p => {
+      const href = linkSeguro(p.link) || (DEMO.includes(p) ? '#' : null);
+      if (!href) return '';
+      const foto = p.imagem && /^https:\/\//.test(p.imagem)
+        ? `<img class="foto" src="${esc(p.imagem)}" alt="" loading="lazy" referrerpolicy="no-referrer">`
+        : `<div class="foto" aria-hidden="true">${EMOJI[p.categoria] || '🛍️'}</div>`;
+      const preco = p.preco !== '' && p.preco != null && !isNaN(p.preco)
+        ? `<span class="preco">${brl(p.preco)}<small>preço consultado em ${dataBR(p.data)}</small></span>`
+        : `<span class="preco"><small>veja o preço na Shopee</small></span>`;
+      return `<a class="card" href="${esc(href)}" target="_blank" rel="noopener sponsored">
+        ${foto}
+        <div>
+          <span class="num">#${esc(p.n)}</span><span class="cat">${esc(p.categoria)}</span>
+          <div class="nome">${esc(p.nome)}</div>
+          <div class="linha">${preco}<span class="btn">Ver na Shopee →</span></div>
+        </div></a>`;
+    }).join('');
+  }
+
+  async function carregar() {
+    const demo = new URLSearchParams(location.search).has('demo');
+    try {
+      if (demo) { produtos = DEMO; $('aviso-demo').hidden = false; }
+      else {
+        const r = await fetch(VITRINE_URL, { redirect: 'follow' });
+        const j = await r.json();
+        if (!j.ok) throw new Error(j.erro || 'falha');
+        produtos = j.produtos || [];
+      }
+      produtos.sort((a, b) => b.n - a.n);
+      desenharChips(); desenhar();
+    } catch (e) {
+      $('lista').innerHTML = '<div class="erro">Não consegui carregar os achadinhos agora. Tente de novo em instantes. 💗</div>';
+    }
+  }
+
+  $('busca').addEventListener('input', desenhar);
+  $('chips').addEventListener('click', e => {
+    const b = e.target.closest('.chip'); if (!b) return;
+    categoria = b.dataset.c; desenharChips(); desenhar();
+  });
+  carregar();
+</script>
+</body>
+</html>
